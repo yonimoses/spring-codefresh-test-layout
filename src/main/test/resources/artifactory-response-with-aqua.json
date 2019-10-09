@@ -1,0 +1,8 @@
+{
+  "uri": "http://localhost:8081/artifactory/api/storage/libs-release-local/org/acme",
+  "properties": {
+    "aqua": [
+      "true"
+    ]
+  }
+}

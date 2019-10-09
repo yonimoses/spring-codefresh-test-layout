@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "spring-codefresh-test-layout.fullname" . }}
+  labels:
+    app: {{ template "spring-codefresh-test-layout.name" . }}
+    chart: {{ template "spring-codefresh-test-layout.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "spring-codefresh-test-layout.name" . }}
+    release: {{ .Release.Name }}
